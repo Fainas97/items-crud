@@ -1,0 +1,12 @@
+.center-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inline-space {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    max-height: 35px;
+}
