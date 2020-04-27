@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Item;
 use App\Category;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\Response;
 use App\Http\Requests\ItemRequest;
@@ -33,7 +34,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = $this->item->with('itemCategory')->paginate(5);
+        $items = $this->item->with('category')->paginate(5);
 
         return view('item.items', compact('items'));
     }
@@ -71,7 +72,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        $item = $this->item->with('itemCategory')->findOrFail($id);
+        $item = $this->item->with('category')->findOrFail($id);
 
         return view('item.show', compact('item'));
     }
@@ -120,7 +121,7 @@ class ItemController extends Controller
     }
 
     /**
-     * Remove the specified resource data.
+     * Return the specified resource data json.
      *
      * @param int $id
      * @return JsonResponse
@@ -130,5 +131,18 @@ class ItemController extends Controller
         $item = $this->item->with('category')->findOrFail($id);
 
         return response()->json($item);
+    }
+
+    /**
+     * Display a listing of the resource with selected category.
+     *
+     * @param Request $request
+     * @return Factory|View
+     */
+    public function categoryIndex(Request $request)
+    {
+        $items = $this->item->categoryItems($request->category_id);
+
+        return view('item.category-items', compact('items'));
     }
 }

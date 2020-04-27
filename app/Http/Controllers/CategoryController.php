@@ -115,4 +115,16 @@ class CategoryController extends Controller
 
         return redirect('/categories')->withError('Delete assigned items first!');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Factory|View
+     */
+    public function categories()
+    {
+        $categories = $this->category->get();
+
+        return view('category-select', compact('categories'));
+    }
 }

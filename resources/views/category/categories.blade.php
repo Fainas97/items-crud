@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>{{$category->id}}</td>
                                     <td>
-                                        <a href="/category/{{$category->id}}">{{$category->name}}</a>
+                                        <a href="/categories/{{$category->id}}">{{$category->name}}</a>
                                     </td>
                                     <td>{{$category->updated_at}}</td>
                                     <td class="text-center">

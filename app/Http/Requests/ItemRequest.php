@@ -28,7 +28,7 @@ class ItemRequest extends FormRequest
             'category_id' => 'required',
             'name' => ['required',
                 'string',
-                Rule::unique('item')->ignore($this->route('id')),
+                Rule::unique('items')->ignore($this->route('id')),
                 'max:50'],
             'count' => 'required|numeric',
             'price' => 'required|numeric',

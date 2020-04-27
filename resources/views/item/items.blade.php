@@ -31,7 +31,7 @@
                                     <td>{{$item->id}}</td>
                                     <td>{{$item->category->name}}</td>
                                     <td>
-                                        <a href="/item/{{$item->id}}">{{$item->name}}</a>
+                                        <a href="/items/{{$item->id}}">{{$item->name}}</a>
                                     </td>
                                     <td>{{$item->count}}</td>
                                     <td>{{$item->price}}€</td>

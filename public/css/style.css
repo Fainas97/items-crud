@@ -10,3 +10,8 @@
     justify-content: space-between;
     max-height: 35px;
 }
+
+.center-td {
+    text-align: center;
+    vertical-align: middle;
+}

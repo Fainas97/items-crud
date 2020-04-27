@@ -26,6 +26,8 @@ Route::group(['prefix' => 'items', 'middleware' => ['auth']], function () {
     Route::put('/{id}/update', 'ItemController@update')->name('item.update');
 
     Route::delete('/{id}', 'ItemController@destroy')->name('item.destroy');
+
+    Route::get('/category/show', 'ItemController@categoryIndex')->name('item.category');
 });
 
 Route::group(['prefix' => 'categories', 'middleware' => ['auth']], function () {
@@ -41,6 +43,8 @@ Route::group(['prefix' => 'categories', 'middleware' => ['auth']], function () {
     Route::put('/{id}/update', 'CategoryController@update')->name('cat.update');
 
     Route::delete('/{id}', 'CategoryController@destroy')->name('cat.destroy');
+
+    Route::get('/show/items', 'CategoryController@categories')->name('cat.items');
 });
 
 Route::get('/api/items/{id}', 'ItemController@api')->name('api');

@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="form-group col-3">
                                     <label for="price">Price*</label>
-                                    <input type="number" class="form-control" name="price" value="{{ old('price', $item->price) }}"/>
+                                    <input type="number" class="form-control" name="price" step="0.01" value="{{ old('price', $item->price) }}"/>
                                 </div>
                                 <div class="form-group col-3">
                                     <label for="name">Name*</label>
